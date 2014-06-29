@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "MyAccount";
+}
+
+<h2>Revinue</h2>
+<table>
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>
+            Amount
+        </td>
+        <td>
+            Address
+        </td>
+    </tr>
+    @foreach(var a in ViewBag.c)
+    { 
+        <tr>
+        <td>
+            @a.UName
+        </td>
+        <td>
+            @a.Amount
+        </td>
+        <td>
+            @a.Address
+        </td>
+    </tr> 
+    }
+</table>

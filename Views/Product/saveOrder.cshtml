@@ -1,0 +1,31 @@
+﻿@model Shooing.Models.Product
+
+@{
+    ViewBag.Title = "saveOrder";
+    int total=0;
+}
+
+<h2>saveOrder</h2>
+
+<table>
+    @foreach (var a in ViewBag.p)
+    {
+        <tr>
+            <td>
+               Name= @a.Name
+            </td>
+            <td>
+                Price= @a.Price
+            </td>
+        </tr>
+        total = (int)total + (int)a.Price;
+    }
+</table>
+<label >Total Bill = @total</label>
+<form action="/Product/saveIn" method="post">
+    <input type="hidden" name="total" value="@total" />
+
+    Enter Address:<input type="text" name="add" value="" />
+    Enter Name:<input type="text" name="oname" value="" />
+    <input type="submit" value="save" />
+</form>

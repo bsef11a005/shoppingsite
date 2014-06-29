@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Add";
+}
+
+@model Shooing.Models.Product
+
+@using (@Html.BeginForm("Save", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.Label("Name")
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Category")
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Category)
+               @Html.ValidationMessageFor(model => model.Category)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Price")
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Price)
+                @Html.ValidationMessageFor(model => model.Price)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Select Image")
+            </td>
+            <td>
+               <input type="file" name="image" />
+            </td>
+        </tr>
+        
+        
+     </table>
+    <input type="submit" value="Save" />
+}

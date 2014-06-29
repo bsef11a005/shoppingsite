@@ -1,0 +1,24 @@
+﻿@model Shooing.Models.Product
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<table>
+    @foreach (var a in ViewBag.q)
+    {
+
+        <tr>
+            <td>
+
+                <img src="~/Files/@a.Image" style="width:100px ; height:100px" />
+            </td>
+            <td>
+                Price = @a.Price
+            </td>
+            <td>
+                Name =@a.Name
+            </td>
+        </tr>
+    }
+</table>

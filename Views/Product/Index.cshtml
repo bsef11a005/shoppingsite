@@ -1,0 +1,29 @@
+﻿@model List<Shooing.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@section s1{
+  <a href="../Product/saveOrder" class="cart-link">Check Out</a>
+}
+<table>
+    @foreach (var a in ViewBag.a)
+    {
+
+        <tr>
+            <td>
+
+                <img src="~/Files/@a.Image" style="width:100px ; height:100px" />
+            </td>
+            <td>
+                Price = @a.Price
+            </td>
+            <td>
+                Name =@a.Name
+            </td>
+            <td><a href="../Product/AddtoCart?u=@a.Name">Add To Cart</a></td>
+        </tr>
+    }
+</table>

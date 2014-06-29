@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+}
+<script src="~/Scripts/jquery-ui-1.8.24.js"></script>
+<script src="~/Scripts/jquery-1.4.1.min.js"></script>
+@model Shooing.Models.A_User
+<div>
+    @using (Html.BeginForm("Save","Home",FormMethod.Post))
+    {
+         @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    //@Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Sign Up</legend>
+
+        <div class="editor-label">
+           @Html.Label("Enter Username")
+            @Html.TextBoxFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+        <div class="editor-field" id="d1">
+           
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Enter Password")
+            @Html.TextBoxFor(model => model.Password)
+            @Html.ValidationMessageFor(model=>model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.Label("Confirm Password")
+            @Html.TextBox("Confirm")
+            
+        </div>
+
+        <p>
+            <input type="submit" value="SignUp" />
+        </p>
+    </fieldset>
+}
+
+    
+   
+    <script>
+        
+        $(document).ready(function () {
+           
+
+            $('#UserName').change(function () {
+              //  alert("abc");
+                $.getJSON("/Home/checkUser?us=" + $('#UserName').val(), function (x) {
+                    if (x) {
+                                //alert(x);
+                                $('#d1').text("UserName already exist");
+                                //alert("ads1");
+                        }
+                    else {
+                                //alert(x);
+                                //alert("ads1");
+                                $('#d1').text("Available");
+                        }
+                });
+            });
+        });
+
+
+    </script>
+</div>
